@@ -6,7 +6,7 @@ from llama_index import SimpleDirectoryReader
 
 st.set_page_config(page_title="WaterCorp's Chatbot!", page_icon="", layout="centered", initial_sidebar_state="auto", menu_items=None)
 openai.api_key = st.secrets.openai_key
-st.title("Chat with WC Annual report 💬")
+st.title("WaterCorp's Chatbot💬")
 st.info("Available at(https://www.watercorporation.com.au/About-us/Our-performance/Annual-report)", icon="📃")
          
 if "messages" not in st.session_state.keys(): # Initialize the chat messages history
