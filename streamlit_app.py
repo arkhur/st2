@@ -4,10 +4,10 @@ from llama_index.llms import OpenAI
 import openai
 from llama_index import SimpleDirectoryReader
 
-st.set_page_config(page_title="WaterCorp's Chatbot!", page_icon="", layout="centered", initial_sidebar_state="auto", menu_items=None)
+st.set_page_config(page_title="The KnowledgeBot!", page_icon="", layout="centered", initial_sidebar_state="auto", menu_items=None)
 openai.api_key = st.secrets.openai_key
-st.title("WaterCorp's Chatbot💬")
-st.info("Available at(https://www.watercorporation.com.au/About-us/Our-performance/Annual-report)", icon="📃")
+st.title("The KnowledgeBot💬")
+st.info("Annual Report is available at(https://www.watercorporation.com.au/About-us/Our-performance/Annual-report)", icon="📃")
          
 if "messages" not in st.session_state.keys(): # Initialize the chat messages history
     st.session_state.messages = [
