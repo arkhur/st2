@@ -3,7 +3,6 @@ from llama_index.core import VectorStoreIndex, ServiceContext, Document
 from llama_index.llms import OpenAI
 import openai
 from llama_index.core import SimpleDirectoryReader
-import nltk
 from llama_index.core import Settings
 
 st.set_page_config(page_title="The KnowledgeBot!", page_icon="", layout="centered", initial_sidebar_state="auto", menu_items=None)
