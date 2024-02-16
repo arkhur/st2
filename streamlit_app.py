@@ -1,10 +1,10 @@
 import streamlit as st
-from llama_index import VectorStoreIndex, ServiceContext, Document
+from llama_index.core import VectorStoreIndex, ServiceContext, Document
 from llama_index.llms import OpenAI
 import openai
-from llama_index import SimpleDirectoryReader
+from llama_index.core import SimpleDirectoryReader
 import nltk
-
+from llama_index.core import Setting
 
 st.set_page_config(page_title="The KnowledgeBot!", page_icon="", layout="centered", initial_sidebar_state="auto", menu_items=None)
 openai.api_key = st.secrets.openai_key
@@ -21,8 +21,8 @@ def load_data():
     with st.spinner(text="Loading and indexing the doc – hang tight! This should take 1-2 minutes."):
         reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
         docs = reader.load_data()
-        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt="You are in the panel of Minister for Water. You are being asked questions about an annual report. Keep your answers technical and based on facts – do not hallucinate features."))
-        index = VectorStoreIndex.from_documents(docs, service_context=service_context)
+        Settings.llm = OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt="You are in the panel of Minister for Water. You are being asked questions about an annual report. Keep your answers technical and based on facts – do not hallucinate features.")
+        index = VectorStoreIndex.from_documents(docs)
         return index
 
 index = load_data()
