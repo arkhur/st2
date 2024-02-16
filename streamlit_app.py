@@ -4,6 +4,8 @@ from llama_index.llms import OpenAI
 import openai
 from llama_index.core import SimpleDirectoryReader
 from llama_index.core import Settings
+import nltk
+nltk.download('stopwords')
 
 st.set_page_config(page_title="The KnowledgeBot!", page_icon="", layout="centered", initial_sidebar_state="auto", menu_items=None)
 openai.api_key = st.secrets.openai_key
